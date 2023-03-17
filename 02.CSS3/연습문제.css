@@ -1,0 +1,27 @@
+.c {
+  background-color: orange;
+  width: 550px;
+}
+#html {
+  color: skyblue;
+}
+td[name~="css"] {
+  background-color: #9bacf5;
+}
+#study {
+  background-color: yellow;
+}
+td {
+  width: 90px;
+}
+table [name="time"] {
+  width: 160px;
+}
+table {
+  text-align: center;
+}
+table,
+tr,
+td {
+  border-collapse: collapse;
+}
