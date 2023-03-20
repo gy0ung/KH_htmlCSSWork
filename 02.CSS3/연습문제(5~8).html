@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>연습문제(5~8)</title>
+    <style>
+      p {
+        border-top: dashed sienna;
+        border-right: dotted green;
+        border-bottom: solid orange;
+        border-left: dotted skyblue;
+      }
+      input {
+      }
+      fieldset {
+        text-align: left;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>연습문제</h1>
+
+    <form>
+      <p>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rem,
+        accusamus! Est, perferendis! Ducimus reiciendis, hic libero doloribus
+        commodi placeat nisi cupiditate vitae provident veritatis maxime amet,
+        deserunt laudantium totam optio.
+      </p>
+
+      <fieldset>
+        <legend>설문조사</legend>
+        <br />
+        <table>
+          <tr>
+            <!-- 위에 width(너비)를 반영하면 아래도 따라 반영됨-->
+            <!-- 여러개의 height을 설정하면 같은 열의 가장 큰 값이 반영-->
+            <td>제목</td>
+            <td><input type="text" /></td>
+          </tr>
+          <tr>
+            <td>Chrome</td>
+            <!-- td 왼쪽정렬 -->
+            <td>Google</td>
+          </tr>
+          <tr>
+            <td>사파리</td>
+            <td>애플</td>
+          </tr>
+        </table>
+
+        제목 <input type="text" /><br /><br />
+        내용 <input /><br /><br />
+        첨부파일 <input type="file" /><br /><br />
+      </fieldset>
+
+      <br />
+
+      <input type="submit" /> &ensp; <input type="reset" />
+    </form>
+  </body>
+</html>
