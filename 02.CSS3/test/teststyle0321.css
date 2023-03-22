@@ -1,0 +1,16 @@
+.s {
+  background-color: rgba(247, 247, 191, 0.651);
+}
+.h {
+  background-color: rgba(255, 68, 0, 0.596);
+  color: aliceblue;
+  text-align: center;
+}
+.f {
+  background-color: rgba(255, 68, 0, 0.596);
+  color: aliceblue;
+  text-align: center;
+}
+table {
+  width: auto;
+}
