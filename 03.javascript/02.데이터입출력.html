@@ -82,7 +82,123 @@
         }
     </script>
 
+    <hr>
+
+    <h2>2. 데이터 입력받는 구문(변수에 기록 가능)</h2>
+    <p>
+        1) 변수 = [window.]confirm("질문내용"); <br>
+        2) 변수 = [window.]prompt("질문내용"); <br>
+        <!-- ↓ 입력받는게 아니라 제외 -->
+        <!-- 변수 = 선택한요소.속성(id, className, innerHTML, innerText ...); <br> -->
+        3) 변수 = 선택한input요소.value;
+    </p>
+
+    <h3> 1) [window.]confirm("질문내용");</h3>
+    <p>
+        confirm호출시 "질문내용"과 "확인/취소" 버튼이 존재하는 알림창 발생<br>
+        확인 버튼 클릭시 true, 취소 버튼 클릭시 false반환
+    </p>
+
+    <div class="area" id="area2"></div>
+    <button onclick="testConfirm();">클릭</button>
+    
+    <script>
+        function testConfirm() {
+            var result = confirm("아침은 먹었습니까?");
+            // console.log(result);
+            if(result) {
+                console.log("잘 하셨군요");
+            }else {
+                console.log("배고프겠군요");
+            }
+            
+            var divEl = document.getElementById("area2");
+            if(result) {
+                divEl.innerHTML = "<h4>잘 하셨군요</h4>"
+            } else {
+                divEl.innerHTML = "<h4>배고프겠군요</h4>"
+            }
+        }
+        </script>
+
+<h3>2) [window.]prompt("질문내용");</h3>
+<p>
+    prompt 호출시 "질문내용"과 입력할 수 있는 "텍스트 상자"와
+    "확인/취소" 버튼이 보여지는 알림창 발생<br>
+    확인 버튼 클릭시 텍스트 상자에 입력된 값이 문자열로 반환<br>
+    취소 버튼 클릭시 null 반환
+</p>
+
+<div class="area" id="area3"></div>
+<button onclick="testPromt1();">클릭</button>
+
+<script>
+    function testPromt1() {
+        var name = prompt("이름을 입력하세요");
+        var age = prompt("나이를 입력하세요");
+
+        console.log(name);
+        console.log(age);
+
+        // <b>당신이 바로 [25]살 [홍길동]님이군요</b>
+        var divEl = document.getElementById("area3");
+        divEl.innerHTML = "<b>당신이 바로 " + age + "살 " + name + "님이군요"
+    }
+</script>
+
+<br><br>
+
+<button onclick="testPromt2();">숫자입력</button>
+
+<ul id="area4"></ul>
+
+<script>
+    function testPromt2() {
+        var num = prompt("숫자만 입력하세요");
+        var str ="";
+        for(var i=1; i<=num; i++) {
+            str += "<li>목록" + i + "</li>"
+        }
+
+    var ulEl = document.getElementById("area4");
+    ulEl.innerHTML = str;
+    // ↑ 위의 두줄의 코드를 ↓ 아래 한줄로 짤수있다.
+    // document.getElementById("area4").innerHTML = str;
+    }   
+</script>
+
+<h3>3) 선택한input요소.value</h3>
+아이디 : <input id="userId"><br>
+비밀번호 : <input type="password" id="userPwd"><br>
+<button onclick="testInput();">로그인</button>
+
+<input id="area5">
+
+<script>
+    function testInput() {
+           var input1 = document.getElementById("userId");
+           var input2 = document.getElementById("userPwd");
+           
+                      // ↓ input태그 자체를 가져옴
+        // console.log(input1);
+        // console.log(input2);
+
+                     // ↓ input태그 안에 있는 값을 가져옴
+        console.log(input1.value);
+        console.log(input2.value);
+        
+        var id = input1.value;
+        var pwd = input2.value;
+        var inputEl = document.getElementById("area5");
+        inputEl.value = id + ", " + pwd
+        // ↑ 위의 네줄의 코드를 ↓ 아래 한줄로 짤수있다.
+        // document.getElementById("area5").value = input1.value + ", " + input2.value;
+    }
+</script>
 
 
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 </body>
 </html>
