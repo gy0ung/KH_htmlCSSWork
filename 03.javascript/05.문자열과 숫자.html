@@ -98,5 +98,128 @@
             area3.innerHTML += `올림 : ${Math.ceil(123.123)}<br>`; 
         }
     </script>
+
+    <hr>
+
+    <h3>* 문자열과 숫자간의 산술연산 / 형변환</h3>
+
+    <div id="area4" class="area"></div>
+    <button onclick="operatot();">산술연산</button>
+
+    <script>
+        function operatot() {
+            let test1 = 7+7;        // 14
+            let test2 = 7+'7';      // 77
+            let test3 = '7'+7;      // 77
+            let test4 = '7'+7+7;      // 77
+            // 자바와 동일하게 문자열이 하나라도 있으면 문자열로 인식 
+            // 뒤에 숫자는 산수를 하고싶다면 ( ) 를 넣어줘야한다.
+            // 덧셈에서만! 덧셈이외는 산술연산 가능!
+            // 덧셈에서는 문자열이 자동형변환이 안됨
+
+            console.log(test1);
+            console.log(test2);
+            console.log(test3);
+            console.log(test4);
+
+            // div에 출력
+            const area4 = document.getElementById("area4");
+            area4.innerHTML = `test1 : ${test1}<br>`;
+            area4.innerHTML += `test1 : ${test2}<br>`;
+            area4.innerHTML += `test1 : ${test3}<br>`;
+            area4.innerHTML += `test1 : ${test4}<br>`;
+            area4.innerHTML += "----------------------<br>";
+            
+            // 덧셈이외는 문자열도 산술연산 가능
+            // 문자열은 자동으로 형변환이 되어 산술연산됨
+            // 단, 문자열에는 숫자만 있어야 한다.
+            let test5 = "7" - 7;
+            let test6 = "7" * 7;
+            let test7 = "7" / 7;
+            
+            area4.innerHTML += `test1 : ${test5}<br>`;
+            area4.innerHTML += `test1 : ${test6}<br>`;
+            area4.innerHTML += `test1 : ${test7}<br>`;
+            area4.innerHTML += "----------------------<br>";
+            
+            // 덧셈 연산시 문자를 형변환해야 연산 가능
+            // 강제형변환(문자열 → 숫자로)
+            // 1) Number(문자열);
+            // 2) parseInt(문자열);
+            // 3) parseFloat(문자열);
+            
+            let test8 = 2 + "3";
+            
+            let test9 = 2 + Number("3");
+            let test10 = 2 + parseInt("3");
+            let test11 = 2 + parseFloat("3");
+            
+            area4.innerHTML += `test1 : ${test8}<br>`;
+            area4.innerHTML += `test1 : ${test9}<br>`;
+            area4.innerHTML += `test1 : ${test10}<br>`;
+            area4.innerHTML += `test1 : ${test11}<br>`;
+            area4.innerHTML += "----------------------<br>";
+            
+            let test12 = 2 +"1.2345";
+            
+            let test13 = 2 + Number("1.2345");
+            let test14 = 2 + parseInt("1.2345");
+            let test15 = 2 + parseFloat("1.2345");
+            
+            area4.innerHTML += `test1 : ${test12}<br>`;
+            area4.innerHTML += `test1 : ${test13}<br>`;
+            area4.innerHTML += `test1 : ${test14}<br>`;
+            area4.innerHTML += `test1 : ${test15}<br>`;
+            area4.innerHTML += "----------------------<br>";
+        }
+    </script>
+
+    <hr>
+
+    정수1 : <input type="number" id="num1"><br>
+    정수2 : <input type="number" id="num2"><br><br>
+
+    <div id="result">결과없음</div>
+    <button onclick="plus();">덧셈</button>
+
+    <script>
+        function plus() {
+            // input요소의 value값은 무조건 string타입(문자열)
+            const num1 = document.getElementById("num1").value;
+            const num2 = document.getElementById("num2").value;
+
+            let sum = num1 + num2;
+            console.log(sum);
+        }
+    </script>
+
+    <hr>
+
+    <h3>실습문제</h3>
+    <p>
+        사용자로부터 prompt로 입력받아서 문자열 중 알파벳(소문자만)의 갯수 세기
+    </p>
+
+    <span id="ex"></span><br>
+    <button onclick="example();">실습문제</button>
+
+    <script>
+        function example() {
+            const result = document.getElementById("ex");
+            const text = promt("문자 입력(단, 한글과 영문 소문자만)");
+
+            let count =0;
+            for(let i=0; i<text.length; i++) {
+                if(text[i] >= 'a' && text[i] <= 'z') {
+                    ++count;
+                }
+            }
+            result.innerHTML += `입력한 문자열중 알파벳은 ${count}개 입니다. `;
+        }
+    </script>
+
+
+
+
 </body>
 </html>
