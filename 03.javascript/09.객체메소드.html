@@ -76,5 +76,89 @@
             p2.setAge(30);
         }
     </script>
+
+    <hr>
+
+    <h3>* in과 with키워드</h3>
+    <p>
+        in : 객체 내에 해당 속성이 있는지 확인해주는 키워드(존재하면 true, 아니면 false)
+        with : 객체의 속성 접근시 객체명을 생략할 수 있음(코드를 줄여주는 키워드)
+    </p>
+    이름 : <input id="name"><br>
+    국어 : <input type="number" id="kor"><br>
+    수학 : <input type="number" id="math"><br>
+    영어 : <input type="number" id="eng"><br><br>
+    <button onclick="test2();">실행확인</button>
+    <div id="area2" class="area"></div>
+
+    <script>
+        function test2() {
+            // document.getElementById("area2").value
+            const student = {
+                name : document.getElementById("name").value,
+                kor : Number(document.getElementById("kor").value),
+                math : Number(document.getElementById("math").value),
+                eng : Number(document.getElementById("eng").value),
+                toString : function() {
+                return `[${this.name} : ${this.kor}, ${this.math}, ${this.eng}]`; 
+                },
+                getSum : function() {
+                    return this.kor + this.math + this.eng;
+                },
+                getAvg : function() {
+                    // return this.getSum() / 3;    // 호출할때 this를 붙여줘야한다.
+                    return Math.round((this.getSum()/3)*10) / 10;
+                        //  ↑ Math.round 정수까지만 출력 
+                        // ex) this.getSum()/3 값이 75.956 라고한다면
+                        // *10을하여 759.56으로 만들고 Math.round로 759만 남긴상태에서
+                        // /10을하여 75.9로 소수첫번째짜리까지 구할수 있다.
+                        // 자바스크립트에서 이렇게하여 소숫점자리 조절
+                }
+            }
+            console.log(student);
+
+            const area2 = document.getElementById("area2");
+            area2.innerHTML += `student : ${student}<br>`;
+                 // 객체 이름(student)만 넣으면 ↑ student.toString()이 호출됨
+                 // toString이 없는경우 객체가 출력됨 (ex student:object)
+            
+            // "속성명" in 객체명 : 객체에 해당 속성이 존재할 경우 true
+            area2.innerHTML += `name속성이 있나? : ${"name" in student}<br>`;
+            area2.innerHTML += `age속성이 있나? : ${"age" in student}<br>`;
+
+            area2.innerHTML += `학생이름 : ${student.name}<br>`;
+            area2.innerHTML += `국어점수 : ${student.kor}<br>`;
+            area2.innerHTML += `수학점수 : ${student.math}<br>`;
+            area2.innerHTML += `영어점수 : ${student.eng}<br>`;
+
+            // 객체 메소드로 정의하여 호출 할 수 있다.
+            //area2.innerHTML += `총점수 : ${student.kor+student.math+student.eng}<br>`;
+            area2.innerHTML += `총점 : ${student.getSum()}<br>`;
+            // area2.innerHTML += `평균점수 : ${(student.kor+student.math+student.eng) / 3}<br>`;
+            area2.innerHTML += `평균 : ${student.getAvg()}<br>`;
+
+            area2.innerHTML += `----------------------<br>`;
+
+            with(student) {
+                area2.innerHTML += `학생이름 : ${name}<br>`;
+                area2.innerHTML += `국어점수 : ${kor}<br>`;
+                area2.innerHTML += `수학점수 : ${math}<br>`;
+                area2.innerHTML += `영어점수 : ${eng}<br>`;
+                area2.innerHTML += `총점 : ${getSum()}<br>`;
+                area2.innerHTML += `평균 : ${getAvg()}<br>`;
+
+            }
+        }
+    </script>
+
+
+
+
+
+
+
+
+
+
 </body>
 </html>

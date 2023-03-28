@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>분해할당</title>
+</head>
+<body>
+    <h1>분해할당</h1>
+    <h3>배열이나 객체에 들어있는 속성값을 각각의 변수에 할당 </h3>
+
+    <h4>콘솔확인</h4>
+    <script>
+        (function(){
+             /*
+            (구조)분해할당
+            1. 배열의 분해 할당
+            2. 객체의 분해 할당
+            */
+
+            // 1. 배열의 분해 할당
+            //     1) ES5에서 분해할당
+            const point = [20,30,40];
+            const x1 = point[0];
+            const y1 = point[1];
+            const z1 = point[2];
+            console.log(`x1,y1,z1 : `, x1, y1, z1);
+            
+            //    2) ES6에서 분해할당
+            const [x2, y2, z2] = [20,30,40];
+            console.log(`x2,y2,z2 : `, x2, y2,z2);
+            
+            // 두번째 값 무시하기
+            const [x3, , z3] = point;
+            console.log(`x3,z3 : `, x3,z3);
+            
+            // 두번째,세번째 값 무시하기
+            const [x4 , , , w4] = point;
+            console.log(`x4,w4 : `, x4,w4);
+
+            // rest연산자(...) : 여러개의 인자값(배열로 들어옴)
+            // java의 가변인자(String ...arg)
+            
+            const [x5, x6, ...rest] = [10, 20, 30, 40, 50, 60, 70];
+
+            console.log('x5 : ', x5);
+            console.log('x6 : ', x6);
+            console.log('rest : ', rest);
+
+            // 2. 객체의 분해 할당
+            const car = {
+                model:'k9',
+                color:'black',
+                year: 2023
+            }; // 함수는 세미콜론(;)을 붙이지않지만 변수에넣을때는 대체적으로 세미콜론을 넣는다.
+
+            //    1) ES5에서 분해할당
+            const model = car.model;
+            const color = car.color;
+            const year = car.year;
+            console.log('model, color, year : ', model, color, year);
+            
+            const car2 = {
+                model2:'제네시스',
+                color2:'green',
+                year2: 2020
+            };
+            //    2) ES6에서 분해할당
+            const {model2, color2, year2} = car2;   // 특정키워드를 넣지 않을 경우 속성명이 같아야한다.
+            console.log('model2, color2, year2 : ', model2, color2, year2);
+            
+            const {model : model3, color: color3, year: year3} = car;
+            console.log('model3, color3, year3 : ', model3, color3, year3);
+
+            // 함수는 호출해줘야 실행됨
+                                 // ↓ 변수이름 (마음대로 짓기)
+            const fun1 = function(car1) {   // let car = car; (객체를 넘겨주기)
+                const {model,color} = car1;
+                console.log(model,color);
+            }
+            // 함수호출
+            //    ↓ 객체를 넣어줘야함 그래야 값이들어옴
+            fun1(car);
+                                    // ↓ 변수의 이름이아닌 객체의 속성을 그대로 불러오기위해 중괄호넣어줌
+            const fun2 = function({model, color}){
+                console.log(model,color);
+            }
+            fun2(car);
+
+            // 화살표함수로 
+            const fun3 = ({model, color}) => console.log(model,color);
+            fun3(car);
+            
+            
+
+        })();
+
+    </script>
+
+</body>
+</html>
