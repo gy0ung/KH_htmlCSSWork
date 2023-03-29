@@ -164,6 +164,67 @@
             :   input, img, hr, br ..... <br>
     </p>
     
+    <h3>* 노트(요소) 생성과 관련된 메소드</h3>
+
+    <h4>- 텍스트노드가 존재하는 노드 생성(시작태그+종료태그)</h4>
+
+    <button onclick="test4();">요소생성</button>
+    <div id="area4" class="area"></div>
+
+    <script>
+        function test4() {
+            // 동적으로 요소를 만드는 방법 1. "문자열"로 만드는 방법
+            // document.getElementById("area4").innerHTML = '<h3>안녕하세요</h3>';
+
+            // 동적으로 요소를 만드는 방법 2. document에서 제공하는 메소드를 통해 "요소객체"로 만드는 방법
+            // ElementNode객체 생성 : document.createElement("태그");
+            let elementNode = document.createElement("h3");       // <h3></h3>
+            // TextNode객체 생성 : document.createTextNode("문구");
+            let textNode = document.createTextNode("안녕하세요");  // 안녕하세요
+
+            // 두개의 노드 결합 (요소노드 하위에 텍스트노드 추가)
+            elementNode.appendChild(textNode);                    // <h3>안녕하세요</h3>
+                        //  ↑  자식의 노드에 부착하시오
+            console.log(elementNode);
+
+            // elementNode는 직접만든객체 / 객체이기때문에 toString이 호출이 되는데 직접만든객체라 toString이 없음
+            document.getElementById("area4").innerHTML += elementNode; // [object HTMLHeadingElement] 호출됨
+            
+            document.getElementById("area4").appendChild(elementNode); // <h3>안녕하세요</h3>
+        }
+    </script>
+
+    <br>
+
+    <h4>- 텍스트노드가 존재하지 않는 노드 생성(시작태그만 존재)</h4>
+    <button onclick="test5();">요소생성</button>
+    <div id="area5"></div>
+
+    <script>
+        function test5() {
+            // <img src="" width="" height="">
+            let img = document.createElement("img"); // <img> img라는 객체생성
+
+            // 속성추가
+            img.src = "https://iei.or.kr/resources/images/main/main_renewal/top_logo.jpg";
+            img.width = "100";
+            img.height = "30";
+
+            console.log(img);
+            document.getElementById("area5").appendChild(img);
+        }
+    </script>
+
+    <h3>* 노드(요소) 삭제하는 메소드</h3>
+    <button onclick="test6();">요소삭제</button>
+
+    <script>
+        function test6() {
+            // 지우고자하는 요소객체.remove();
+            // document.getElementById("area5").remove();  // div삭제
+            document.getElementById("area5").firstChild.remove();  // 요소삭제 
+        }
+    </script>
 
 
 
