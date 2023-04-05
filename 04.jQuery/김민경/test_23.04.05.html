@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test230405</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<style>
+    .p1 {
+    display: none;
+}
+</style>
+</head>
+<body>
+    <header>
+        <img src="https://www.iei.or.kr/resources/images/common/top_logo_s.jpg" alt="KH정보교육원 로고" id="logo"/>
+        <input type="text">
+        <button>검색</button>
+    </header>
+        <div>Java</div>
+        <p class="p1">java 기초</p>
+        <p class="p1">객체</p>
+        <p class="p1">Collection</p>
+        <p class="p1">Generics</p>
+    
+        <div>Oracle</div>
+        <p class="p1">DDL</p>
+        <p class="p1">DML</p>
+        <p class="p1">DCL</p>
+
+        <div>Front-End</div>
+        <p class="p1">HTML5</p>
+        <p class="p1">CSS3</p>
+        <p class="p1">JavaScript</p>
+        <p class="p1">jQuery</p>
+
+        <div>Server</div>
+        <p class="p1">JDBC</p>
+        <p class="p1">Servlet</p>
+        <p class="p1">JSP</p>
+        <p class="p1">Ajax</p>
+
+        <div>Framework</div>
+        <p class="p1">SPRING</p>
+        <p class="p1">myBatis</p>
+        <p class="p1">React</p>
+    <script>
+        $(function() {
+            $("div").hover(function() {
+                const p1 = $(this).nextAll();
+                if(p1.css("display")=="none") {
+                    p1.slideDown();
+                } else {
+                    p1.slideUp();
+                }
+            })
+        })
+    </script>
+    <aside>
+    <form action="login.do">
+        <input name="id" size="15" placeholder="아이디 입력"/><br>
+        <input type="password" name="pw" placeholder="비밀번호 입력" />
+        <input type="submit" value="로그인" />
+        회원가입 ID/PWD 찾기
+      </form>
+    </aside>
+    
+      <footer>
+        <p>
+          이용약관 | 개인정보취급방침 | 인재채용 | 고객센터
+        </p>
+        <p>
+          강남지원 1관 : 서울특별시 강남구 테헤란로14길 6 남도빌딩 2F, 3F, 4F, 5F,
+          6F<br />
+          강남지원 2관 : 서울특별시 강남구 테헤란로10길 9 그랑프리 빌딩 4F, 5F,
+          7F<br />
+          강남지원 3관 : 서울특별시 강남구 테헤란로 130 호산빌딩 5F, 6F<br />
+          종로지원 : 서울특별시 중구 남대문로 120 그레이츠 청계(구 대일빌딩) 2F,
+          3F<br />
+          당산지원 : 서울특별시 영등포구 선유동2로 57 이레빌딩(구관) 19F, 20F<br />
+        </p>
+        <p>
+          Copyright © 1998-2021 KH Information Educational Institute All Right
+          Reserved
+        </p>
+      </footer>
+</body>
+</html>

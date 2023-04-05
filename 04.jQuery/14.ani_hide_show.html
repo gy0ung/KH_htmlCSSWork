@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script
+  src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"
+  integrity="sha256-6XMVI0zB8cRzfZjqKcD01PBsAy3FlDASrlC8SxCpInY="
+  crossorigin="anonymous"></script>
+</head>
+<body>
+    <h1>시각적인 효과(Effect 메소드)</h1>
+    <p>페이지 내에 애니메이션 효과를 주기 위해 사용되는 메소드</p>
+
+    <h3>* show(), hide(), toggle()</h3>
+    <p>선택된 요소가 점점 커지면서 보여지고, 점점 작아지면서 사라지게 하는 메소드</p>
+
+    <button id="hide">숨기기</button>
+    <button id="show">보여주기</button>
+    <button id="toggle">토글</button>
+
+    <br><br>
+
+    <img id="img1" src="../01.html/resources/img/img2.png" alt="안녕하는 소녀">
+
+    <div id="content">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum laborum sapiente dolor facere pariatur voluptates magni in rerum modi expedita, aperiam laudantium vero dicta maiores illum! Omnis impedit explicabo quia.
+        Nam doloribus distinctio officiis, fugiat facilis vel ipsum fuga accusantium numquam, ratione sequi architecto velit et ab ipsa dolores maiores culpa! Mollitia molestiae laboriosam et neque cumque reiciendis voluptates provident.
+        Natus iusto quos molestias nihil culpa quisquam sunt, laborum praesentium odio! Odit obcaecati, unde dolorem nam, incidunt atque possimus laudantium reiciendis saepe consequuntur libero cumque ea deserunt ipsam laboriosam blanditiis.
+    </div>
+
+    <script>
+        $(function() {
+            $("#hide").click(function() {
+                $("#img1").hide(2000, "easeOutBounce");
+            })
+
+            $("#show").click(function() {
+                $("#img1").show(2000, "easeOutBounce");
+            })
+
+            $("#toggle").click(function() {
+                $("#content").toggle(2000);
+            })
+        })
+    </script>
+</body>
+</html>
